@@ -93,6 +93,38 @@ export default function App() {
         </div>
       </section>
 
+      
+      <section className="py-20 px-6 bg-gray-50 text-center border-t" id="use-cases">
+        <h3 className="text-3xl font-bold mb-12">Use Cases</h3>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left">
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-bold text-blue-600 mb-2">Real Estate</h4>
+            <ul className="text-gray-600 space-y-2 text-sm">
+              <li>✓ Auto-respond to listing inquiries</li>
+              <li>✓ Qualify buyers by budget and location</li>
+              <li>✓ Book showings via chatbot</li>
+            </ul>
+          </div>
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-bold text-green-600 mb-2">Coaches & Consultants</h4>
+            <ul className="text-gray-600 space-y-2 text-sm">
+              <li>✓ Book discovery calls automatically</li>
+              <li>✓ Send reminders and follow-ups</li>
+              <li>✓ Route client questions to email or CRM</li>
+            </ul>
+          </div>
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-bold text-purple-600 mb-2">Agencies & Freelancers</h4>
+            <ul className="text-gray-600 space-y-2 text-sm">
+              <li>✓ Automate lead qualification & intake</li>
+              <li>✓ Collect client details before call</li>
+              <li>✓ Integrate forms with your CRM</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
       <section id="about" className="py-20 px-6 bg-white text-center">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold mb-4">About Hausmind AI</h3>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { MessageSquare, Settings, ClipboardList } from 'lucide-react';
 
 export default function App() {
   return (
@@ -29,17 +30,23 @@ export default function App() {
         <h3 className="text-3xl font-bold mb-12">What We Do</h3>
         <div className="grid md:grid-cols-3 gap-8 text-left">
           <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
-            <div className="text-3xl mb-3">🤖</div>
+            <div className="text-blue-600 mb-4">
+              <MessageSquare size={40} />
+            </div>
             <h4 className="text-xl font-semibold text-blue-600 mb-2">AI Chatbot Setup</h4>
             <p className="text-gray-600">Smart bots on your site or socials to handle FAQs, qualify leads, and book meetings.</p>
           </div>
           <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
-            <div className="text-3xl mb-3">🔁</div>
+            <div className="text-green-600 mb-4">
+              <Settings size={40} />
+            </div>
             <h4 className="text-xl font-semibold text-green-600 mb-2">Workflow Automation</h4>
             <p className="text-gray-600">Automate repetitive tasks across Zapier, Airtable, ChatGPT and other platforms.</p>
           </div>
           <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
-            <div className="text-3xl mb-3">🎯</div>
+            <div className="text-purple-600 mb-4">
+              <ClipboardList size={40} />
+            </div>
             <h4 className="text-xl font-semibold text-purple-600 mb-2">Lead Qualification Bots</h4>
             <p className="text-gray-600">Use AI to score and pass top leads to your inbox or CRM — instantly.</p>
           </div>

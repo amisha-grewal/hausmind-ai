@@ -65,11 +65,16 @@ export default function App() {
       </section>
 
       <section id="contact" className="py-20 px-6 bg-white text-center border-t">
-        <h4 className="text-3xl font-bold mb-4">Ready to Build Your AI System?</h4>
-        <p className="text-gray-600 mb-6">Book a free strategy session and see how automation can grow your business.</p>
-        <button className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
-          Book Your Free Demo
-        </button>
+        <h4 className="text-3xl font-bold mb-4">Get in Touch</h4>
+        <p className="text-gray-600 mb-8">Drop us a message — we'll get back to you shortly.</p>
+        <form className="max-w-2xl mx-auto space-y-4 text-left">
+          <input type="text" placeholder="Full Name" className="w-full border px-4 py-3 rounded-xl" />
+          <input type="email" placeholder="Email Address" className="w-full border px-4 py-3 rounded-xl" />
+          <textarea placeholder="Your Message" rows="5" className="w-full border px-4 py-3 rounded-xl"></textarea>
+          <button disabled className="bg-blue-400 text-white px-6 py-3 rounded-xl font-semibold opacity-50 cursor-not-allowed">
+            Send Message
+          </button>
+        </form>
       </section>
 
       <footer className="py-8 px-6 bg-gray-100 text-center text-sm text-gray-500">

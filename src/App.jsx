@@ -4,7 +4,6 @@ import React from 'react';
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans scroll-smooth">
-      {/* Navbar */}
       <header className="px-6 py-4 border-b shadow-sm sticky top-0 bg-white z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-extrabold text-blue-600">Hausmind AI</h1>
@@ -16,32 +15,30 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="text-center py-24 px-6 bg-gradient-to-br from-blue-100 to-white">
-        <h2 className="text-5xl font-bold mb-4 animate-fade-in">Smarter Systems. Automated Growth.</h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6 animate-fade-in delay-150">
+        <h2 className="text-5xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
           We build AI bots and automations that run your business while you focus on growth.
         </p>
-        <button className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition animate-fade-in delay-300">
+        <button className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
           Book a Free Demo
         </button>
       </section>
 
-      {/* Services */}
       <section id="services" className="py-20 px-6 max-w-6xl mx-auto text-center">
         <h3 className="text-3xl font-bold mb-12">What We Do</h3>
         <div className="grid md:grid-cols-3 gap-8 text-left">
-          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition animate-fade-in">
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
             <div className="text-3xl mb-3">🤖</div>
             <h4 className="text-xl font-semibold text-blue-600 mb-2">AI Chatbot Setup</h4>
             <p className="text-gray-600">Smart bots on your site or socials to handle FAQs, qualify leads, and book meetings.</p>
           </div>
-          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition animate-fade-in delay-150">
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
             <div className="text-3xl mb-3">🔁</div>
             <h4 className="text-xl font-semibold text-green-600 mb-2">Workflow Automation</h4>
             <p className="text-gray-600">Automate repetitive tasks across Zapier, Airtable, ChatGPT and other platforms.</p>
           </div>
-          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition animate-fade-in delay-300">
+          <div className="p-6 bg-white border rounded-xl shadow hover:shadow-xl transition">
             <div className="text-3xl mb-3">🎯</div>
             <h4 className="text-xl font-semibold text-purple-600 mb-2">Lead Qualification Bots</h4>
             <p className="text-gray-600">Use AI to score and pass top leads to your inbox or CRM — instantly.</p>
@@ -49,8 +46,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="py-20 px-6 bg-gray-50 text-center animate-fade-in">
+      <section id="about" className="py-20 px-6 bg-gray-50 text-center">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold mb-4">About Hausmind AI</h3>
           <p className="text-gray-700 text-lg">
@@ -59,8 +55,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="py-20 px-6 bg-white text-center border-t animate-fade-in">
+      <section id="contact" className="py-20 px-6 bg-white text-center border-t">
         <h4 className="text-3xl font-bold mb-4">Ready to Build Your AI System?</h4>
         <p className="text-gray-600 mb-6">Book a free strategy session and see how automation can grow your business.</p>
         <button className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
@@ -68,7 +63,6 @@ export default function App() {
         </button>
       </section>
 
-      {/* Footer */}
       <footer className="py-8 px-6 bg-gray-100 text-center text-sm text-gray-500">
         &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
       </footer>

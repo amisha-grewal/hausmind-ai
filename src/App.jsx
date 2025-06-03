@@ -8,7 +8,7 @@ export default function App() {
       <header className="px-6 py-4 border-b shadow-sm sticky top-0 bg-white z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <a href="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Hausmind AI logo" className="h-24 w-auto" />
+            <img src="/logo.png" alt="Hausmind AI logo" className="h-[150px] w-auto" />
           </a>
           <nav className="space-x-6">
             <a href="#services" className="text-gray-600 hover:text-blue-600">Services</a>

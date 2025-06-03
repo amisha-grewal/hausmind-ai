@@ -7,7 +7,9 @@ export default function App() {
     <div className="min-h-screen bg-white text-gray-900 font-sans scroll-smooth">
       <header className="px-6 py-4 border-b shadow-sm sticky top-0 bg-white z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-extrabold text-blue-600">Hausmind AI</h1>
+          <a href="/" className="flex items-center space-x-2">
+            <img src="/logo.png" alt="Hausmind AI logo" className="h-10 w-auto" />
+          </a>
           <nav className="space-x-6">
             <a href="#services" className="text-gray-600 hover:text-blue-600">Services</a>
             <a href="#about" className="text-gray-600 hover:text-blue-600">About</a>

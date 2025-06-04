@@ -35,6 +35,37 @@ export default function App() {
         </a>
       </section>
 
+      <section id="services" className="py-20 px-6 bg-white text-center">
+        <h3 className="text-3xl font-bold mb-12">What We Do</h3>
+        <div className="grid gap-12 md:grid-cols-3 max-w-6xl mx-auto">
+          <div className="p-6 bg-blue-50 rounded-xl shadow-sm text-left">
+            <MessageSquare className="w-8 h-8 mb-4 text-blue-600" />
+            <h4 className="text-xl font-semibold mb-2">AI Chatbot Setup</h4>
+            <p className="text-gray-600">Smart bots on your site or socials to handle FAQs, qualify leads, and book meetings.</p>
+          </div>
+          <div className="p-6 bg-blue-50 rounded-xl shadow-sm text-left">
+            <Settings className="w-8 h-8 mb-4 text-green-600" />
+            <h4 className="text-xl font-semibold mb-2">Workflow Automation</h4>
+            <p className="text-gray-600">Automate repetitive tasks across Zapier, Airtable, ChatGPT and other platforms.</p>
+          </div>
+          <div className="p-6 bg-blue-50 rounded-xl shadow-sm text-left">
+            <ClipboardList className="w-8 h-8 mb-4 text-purple-600" />
+            <h4 className="text-xl font-semibold mb-2">Lead Qualification Bots</h4>
+            <p className="text-gray-600">Use AI to score and pass top leads to your inbox or CRM — instantly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-20 px-6 bg-gray-50 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-3xl font-bold mb-4">About Hausmind AI</h3>
+          <p className="text-lg text-gray-700">
+            We help modern businesses scale through intelligent automation. Whether you're a solo founder or an enterprise,
+            we deliver custom AI systems that save time and drive real results.
+          </p>
+        </div>
+      </section>
+
       <section id="calendly" className="py-20 px-6 bg-white text-center">
         <h3 className="text-3xl font-bold mb-8">Book Your Demo</h3>
         <div className="max-w-4xl mx-auto">

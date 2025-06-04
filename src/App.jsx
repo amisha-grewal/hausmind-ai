@@ -56,7 +56,29 @@ export default function App() {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-6 bg-gray-50 text-center">
+      
+    <section id="cases" className="py-20 px-6 bg-white text-center">
+      <div className="max-w-5xl mx-auto">
+        <h3 className="text-3xl font-bold mb-12">Case Studies</h3>
+        <div className="grid gap-10 md:grid-cols-2">
+          <div className="bg-gray-50 p-6 rounded-xl shadow-sm text-left border">
+            <h4 className="text-xl font-semibold mb-2 text-blue-600">📦 E-Commerce Automation</h4>
+            <p className="text-gray-700">
+              Built a chatbot for a Shopify store that cut customer service time by 60% and increased qualified leads by 40% through 24/7 automated responses.
+            </p>
+          </div>
+          <div className="bg-gray-50 p-6 rounded-xl shadow-sm text-left border">
+            <h4 className="text-xl font-semibold mb-2 text-green-600">🏡 Real Estate Lead Capture</h4>
+            <p className="text-gray-700">
+              Implemented a lead qualification bot for a real estate agent that pre-screened prospects and synced with their CRM, resulting in 30% more showings booked.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about"
+ className="py-20 px-6 bg-gray-50 text-center">
         <div className="max-w-3xl mx-auto">
           <h3 className="text-3xl font-bold mb-4">About Hausmind AI</h3>
           <p className="text-lg text-gray-700">

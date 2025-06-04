@@ -106,7 +106,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto">
           <div
             className="calendly-inline-widget"
-            data-url="https://calendly.com/inquiry-hausmindai/15min"
+            data-url="https://calendly.com/inquiry-hausmindai"
             style={{ minWidth: '320px', height: '700px' }}
           ></div>
         </div>

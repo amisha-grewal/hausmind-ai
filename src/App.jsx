@@ -13,7 +13,7 @@ export default function App() {
           <nav className="space-x-6">
             <a href="#services" className="text-gray-600 hover:text-blue-600">Services</a>
             <a href="#about" className="text-gray-600 hover:text-blue-600">About</a>
-            <a href="#contact" className="text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">Book a Demo</a>
+            <button onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/inquiry-hausmindai'})} className="text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">Book a Demo</button>
           </nav>
         </div>
       </header>
@@ -23,7 +23,7 @@ export default function App() {
         <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
           We build AI bots and automations that run your business while you focus on growth.
         </p>
-        <button className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
+        <button onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/inquiry-hausmindai'})} className="text-white bg-blue-600 px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
           Book a Free Demo
         </button>
       </section>
@@ -55,45 +55,6 @@ export default function App() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gray-50 text-center">
-        <h3 className="text-3xl font-bold mb-12">Our Plans</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="border rounded-xl p-8 bg-white shadow hover:shadow-lg transition">
-            <h4 className="text-xl font-bold mb-1">Starter</h4>
-            <p className="text-sm text-gray-500 mb-4">Perfect for testing ideas</p>
-            <ul className="text-left text-gray-600 mb-6 space-y-2">
-              <li>✓ Basic chatbot setup</li>
-              <li>✓ Email lead capture</li>
-              <li>✓ 1 platform integration</li>
-            </ul>
-            <button disabled className="bg-blue-400 text-white w-full py-3 rounded-xl font-semibold opacity-50 cursor-not-allowed">Coming Soon</button>
-          </div>
-          <div className="border-2 border-blue-600 rounded-xl p-8 bg-white shadow-lg">
-            <h4 className="text-xl font-bold mb-1">Growth</h4>
-            <p className="text-sm text-gray-500 mb-4">Best for scaling teams</p>
-            <ul className="text-left text-gray-600 mb-6 space-y-2">
-              <li>✓ All Starter features</li>
-              <li>✓ Workflow automation</li>
-              <li>✓ Basic analytics</li>
-              <li>✓ Up to 3 integrations</li>
-            </ul>
-            <button disabled className="bg-blue-400 text-white w-full py-3 rounded-xl font-semibold opacity-50 cursor-not-allowed">Coming Soon</button>
-          </div>
-          <div className="border rounded-xl p-8 bg-white shadow hover:shadow-lg transition">
-            <h4 className="text-xl font-bold mb-1">Pro</h4>
-            <p className="text-sm text-gray-500 mb-4">Custom AI, high support</p>
-            <ul className="text-left text-gray-600 mb-6 space-y-2">
-              <li>✓ All Growth features</li>
-              <li>✓ Priority support</li>
-              <li>✓ Custom AI workflows</li>
-              <li>✓ Unlimited integrations</li>
-            </ul>
-            <button disabled className="bg-blue-400 text-white w-full py-3 rounded-xl font-semibold opacity-50 cursor-not-allowed">Coming Soon</button>
-          </div>
-        </div>
-      </section>
-
-      
       <section className="py-20 px-6 bg-gray-50 text-center border-t" id="use-cases">
         <h3 className="text-3xl font-bold mb-12">Use Cases</h3>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left">
@@ -123,7 +84,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
 
       <section id="about" className="py-20 px-6 bg-white text-center">
         <div className="max-w-4xl mx-auto">

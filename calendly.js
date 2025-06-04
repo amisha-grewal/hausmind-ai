@@ -1,0 +1,2 @@
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<div class="calendly-inline-widget" data-url="https://calendly.com/inquiry-hausmindai" style="min-width:320px;height:700px;"></div>

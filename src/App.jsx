@@ -144,3 +144,26 @@ export default function App() {
     </div>
   );
 }
+<section id="testimonials" className="py-20 px-6 bg-white text-center">
+  <div className="max-w-5xl mx-auto">
+    <h3 className="text-3xl font-bold mb-12">What Clients Say</h3>
+    <div className="grid gap-10 md:grid-cols-3 text-left">
+      <div className="bg-gray-100 p-6 rounded-xl shadow-sm border">
+        <p className="text-gray-800 italic">"The bot Hausmind built for our real estate site started booking qualified calls on day one. Couldn’t believe how fast it worked."</p>
+        <p className="mt-4 font-semibold text-blue-600">Alex R.</p>
+        <p className="text-sm text-gray-500">Real Estate Consultant</p>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-xl shadow-sm border">
+        <p className="text-gray-800 italic">"We automated our entire intake process. What used to take a full-time VA now takes 0 hours per week."</p>
+        <p className="mt-4 font-semibold text-green-600">Priya N.</p>
+        <p className="text-sm text-gray-500">Founder, Digital Studio</p>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-xl shadow-sm border">
+        <p className="text-gray-800 italic">"I didn’t know anything about AI. The Hausmind team made it simple and impactful. Our first automation saved hours immediately."</p>
+        <p className="mt-4 font-semibold text-purple-600">Derek M.</p>
+        <p className="text-sm text-gray-500">Ecommerce Brand Owner</p>
+      </div>
+    </div>
+  </div>
+</section>
+

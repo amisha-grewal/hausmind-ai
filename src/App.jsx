@@ -97,14 +97,42 @@ export default function App() {
         </div>
         <div className="mt-12 max-w-2xl mx-auto text-left">
           <p className="text-gray-600 text-center mb-6">Can’t book right now? Reach out directly.</p>
-          <form action="https://formspree.io/f/xkndkknd" method="POST" className="space-y-4">
-            <input type="text" placeholder="Your Name" className="w-full border px-4 py-3 rounded-xl" />
-            <input type="email" placeholder="Your Email" className="w-full border px-4 py-3 rounded-xl" />
-            <textarea placeholder="Your Message" rows="4" className="w-full border px-4 py-3 rounded-xl"></textarea>
-            <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
-              Send Message
-            </button>
-          </form>
+          
+<form
+  action="https://formspree.io/f/xkndkknd"
+  method="POST"
+  className="space-y-4"
+>
+  <input
+    type="text"
+    name="name"
+    required
+    placeholder="Your Name"
+    className="w-full border px-4 py-3 rounded-xl"
+  />
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Your Email"
+    className="w-full border px-4 py-3 rounded-xl"
+  />
+  <textarea
+    name="message"
+    required
+    rows="4"
+    placeholder="Your Message"
+    className="w-full border px-4 py-3 rounded-xl"
+  ></textarea>
+  <input type="hidden" name="_captcha" value="false" />
+  <button
+    type="submit"
+    className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+  >
+    Send Message
+  </button>
+</form>
+
         </div>
       </section>
 

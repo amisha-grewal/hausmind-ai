@@ -83,7 +83,10 @@ export default function App() {
 
         {/* Contact Form */}
         <section className="py-20 px-6 bg-white text-center">
-          <h4 className="text-2xl font-bold mb-6">Contact Us Directly</h4>
+          <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
+  <p className="text-gray-600 mb-6">
+    Not ready to book a demo yet? No worries — send us a message with your questions or ideas, and we’ll help you figure out the best next steps.
+  </p>
           <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="max-w-2xl mx-auto space-y-4">
             <input type="text" name="name" placeholder="Your Name" required className="w-full border px-4 py-3 rounded-xl" />
             <input type="email" name="email" placeholder="Your Email" required className="w-full border px-4 py-3 rounded-xl" />

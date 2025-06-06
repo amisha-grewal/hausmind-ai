@@ -144,9 +144,10 @@ export default function App() {
     </div>
   );
 }
+
 <section id="testimonials" className="py-20 px-6 bg-white text-center">
   <div className="max-w-5xl mx-auto">
-    <h3 className="text-3xl font-bold mb-12">What Clients Say</h3>
+    <h3 className="text-3xl font-bold mb-12">Hear From Our Early Users</h3>
     <div className="grid gap-10 md:grid-cols-3 text-left">
       <div className="bg-gray-100 p-6 rounded-xl shadow-sm border">
         <p className="text-gray-800 italic">"The bot Hausmind built for our real estate site started booking qualified calls on day one. Couldn’t believe how fast it worked."</p>

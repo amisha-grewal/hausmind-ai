@@ -75,7 +75,7 @@ export default function App() {
     <div className="my-16">
       <h4 className="text-2xl font-semibold mb-4">Book a 15-Minute Demo</h4>
       <div className="max-w-4xl mx-auto">
-        <iframe src="https://calendly.com/inquiry-hausmindai/15min" width="100%" height="600" frameborder="0"></iframe>
+        <iframe src="https://calendly.com/inquiry-hausmindai/new-meeting" width="100%" height="600" frameborder="0"></iframe>
       </div>
     </div>
     <form action="https://formspree.io/f/xjkrgvqn"

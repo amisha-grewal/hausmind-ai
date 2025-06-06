@@ -1,5 +1,30 @@
 
+import { useEffect, useState } from 'react';
+
 export default function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="min-h-screen font-sans text-gray-800">
+      {/* Header */}
+      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }} />
+          <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition">
+            Book a Demo
+          </a>
+        </div>
+      </header>
+
+      <main className="pt-48">
   return (
     <div className="min-h-screen font-sans text-gray-800">
       {/* Header */}
@@ -91,6 +116,6 @@ export default function App() {
       <footer className="py-8 px-6 bg-white border-t border-gray-300 text-center text-gray-500">
         &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }

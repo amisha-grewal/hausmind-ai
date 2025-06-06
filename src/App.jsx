@@ -97,6 +97,29 @@ export default function App() {
           </form>
         </section>
 
+        {/* Testimonials */}
+        <section className="py-20 px-6 bg-gray-100 text-center">
+          <h3 className="text-3xl font-bold mb-4">Client Success Stories</h3>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+            We’re just getting started — and already building custom automation systems for early adopters.
+            Want to be featured here? Let’s work together.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“This could be your story.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Future Client</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“Hausmind AI helped us automate and scale faster.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Placeholder Testimonial</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“We saved 20+ hours a week thanks to automation.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Placeholder Client</p>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="py-8 px-6 bg-black text-center text-gray-400">
           &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.

@@ -52,20 +52,46 @@ export default function App() {
           </div>
         </section>
 
-        {/* About */}
-        <section className="py-20 px-6 bg-gray-100 text-center">
-          <h3 className="text-3xl font-bold mb-4">About Hausmind AI</h3>
-          <p className="text-lg max-w-3xl mx-auto">
-            We help modern businesses scale through intelligent automation. Whether you're a solo founder or an enterprise, we deliver custom AI systems that save time and drive real results.
-          </p>
+        {/* Use Cases */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-10">Use Cases</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">Real Estate</h4>
+                <p>Qualify buyer leads, answer listings questions, and schedule viewings 24/7 with bots.</p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">E-Commerce</h4>
+                <p>Provide support, recommend products, and convert visitors into customers using AI flows.</p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">Agencies</h4>
+                <p>Automate lead capture and onboarding so you can focus on creative work, not admin.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Calendly Embed */}
-        <section id="contact" className="py-16 px-6 bg-white text-center">
-          <h4 className="text-2xl font-semibold mb-4">Book a 15-Minute Demo</h4>
+        <section id="contact" className="py-20 px-6 bg-gray-50 text-center">
+          <h4 className="text-2xl font-bold mb-4">Book a 15-Minute Demo</h4>
           <div className="max-w-4xl mx-auto">
             <iframe src="https://calendly.com/inquiry-hausmindai/new-meeting" width="100%" height="600" frameBorder="0" title="Calendly Booking"></iframe>
           </div>
+        </section>
+
+        {/* Contact Form */}
+        <section className="py-20 px-6 bg-white text-center">
+          <h4 className="text-2xl font-bold mb-6">Contact Us Directly</h4>
+          <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="max-w-2xl mx-auto space-y-4">
+            <input type="text" name="name" placeholder="Your Name" required className="w-full border px-4 py-3 rounded-xl" />
+            <input type="email" name="email" placeholder="Your Email" required className="w-full border px-4 py-3 rounded-xl" />
+            <textarea name="message" placeholder="Your Message" rows="4" required className="w-full border px-4 py-3 rounded-xl" />
+            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
+              Send Message
+            </button>
+          </form>
         </section>
 
         {/* Footer */}

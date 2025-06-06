@@ -5,7 +5,7 @@ export default function App() {
       {/* Header */}
       <header className="p-6 border-b border-gray-200 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-blue-600">Hausmind AI</h1>
+          <img src="/logo.png" alt="Hausmind AI Logo" className="h-10"/>
           <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition">
             Book a Demo
           </a>
@@ -71,7 +71,15 @@ export default function App() {
       {/* Contact */}
       <section id="contact" className="py-16 px-6 text-center bg-blue-50">
         <h4 className="text-3xl font-bold mb-4">Contact Us</h4>
-        <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="max-w-xl mx-auto text-left">
+        
+    <div className="my-16">
+      <h4 className="text-2xl font-semibold mb-4">Book a 15-Minute Demo</h4>
+      <div className="max-w-4xl mx-auto">
+        <iframe src="https://calendly.com/inquiry-hausmindai/15min" width="100%" height="600" frameborder="0"></iframe>
+      </div>
+    </div>
+    <form action="https://formspree.io/f/xjkrgvqn"
+ method="POST" className="max-w-xl mx-auto text-left">
           <input type="text" name="name" placeholder="Your Name" required className="w-full p-3 mb-4 border rounded" />
           <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 mb-4 border rounded" />
           <textarea name="message" placeholder="Your Message" required className="w-full p-3 mb-4 border rounded h-32"></textarea>

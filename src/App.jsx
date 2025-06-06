@@ -35,7 +35,7 @@ export default function App() {
         </a>
       </section>
 
-      <section id="services" className="py-20 px-6 bg-white text-center">
+      <section id="services" className="py-20 px-6 bg-blue-50 text-center">
         <h3 className="text-3xl font-bold mb-12">What We Do</h3>
         <div className="grid gap-12 md:grid-cols-3 max-w-6xl mx-auto">
           <div className="p-6 bg-blue-50 rounded-xl shadow-sm text-left">
@@ -66,7 +66,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="cases" className="py-20 px-6 bg-white text-center">
+      <section id="cases" className="py-20 px-6 bg-blue-50 text-center">
         <div className="max-w-5xl mx-auto">
           <h3 className="text-3xl font-bold mb-12">Case Studies</h3>
           <div className="grid gap-10 md:grid-cols-2">
@@ -86,7 +86,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="calendly" className="py-20 px-6 bg-white text-center">
+      <section id="calendly" className="py-20 px-6 bg-blue-50 text-center">
         <h3 className="text-3xl font-bold mb-8">Book Your Demo</h3>
         <div className="max-w-4xl mx-auto">
           <div
@@ -145,7 +145,7 @@ export default function App() {
   );
 }
 
-<section id="testimonials" className="py-20 px-6 bg-white text-center">
+<section id="testimonials" className="py-20 px-6 bg-blue-50 text-center">
   <div className="max-w-5xl mx-auto">
     <h3 className="text-3xl font-bold mb-12">Hear From Our Early Users</h3>
     <div className="grid gap-10 md:grid-cols-3 text-left">
@@ -163,6 +163,26 @@ export default function App() {
         <p className="text-gray-800 italic">"I didn’t know anything about AI. The Hausmind team made it simple and impactful. Our first automation saved hours immediately."</p>
         <p className="mt-4 font-semibold text-purple-600">Derek M.</p>
         <p className="text-sm text-gray-500">Ecommerce Brand Owner</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-us" className="py-20 px-6 bg-yellow-50 text-gray-900 text-center">
+  <div className="max-w-5xl mx-auto">
+    <h3 className="text-3xl font-bold mb-8">Why Choose Hausmind AI?</h3>
+    <div className="grid gap-8 md:grid-cols-3 text-left">
+      <div className="bg-white p-6 rounded-xl shadow-sm border">
+        <h4 className="text-xl font-semibold mb-2">Lightning-Fast Setup</h4>
+        <p>Most of our systems are up and running within days, not weeks — so you see results fast.</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-sm border">
+        <h4 className="text-xl font-semibold mb-2">Human-Centered Automation</h4>
+        <p>We build bots that feel human — not robotic. Your customers stay engaged and supported.</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-sm border">
+        <h4 className="text-xl font-semibold mb-2">Custom, Not Cookie-Cutter</h4>
+        <p>Your workflows are unique — so are our solutions. We tailor everything to your business goals.</p>
       </div>
     </div>
   </div>

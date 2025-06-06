@@ -98,8 +98,9 @@ export default function App() {
         <div className="mt-12 max-w-2xl mx-auto text-left">
           <p className="text-gray-600 text-center mb-6">Can’t book right now? Reach out directly.</p>
           
+
 <form
-  action="https://formspree.io/f/xkndkknd"
+  action="https://formspree.io/f/xjkrgvqn"
   method="POST"
   className="space-y-4"
 >
@@ -132,6 +133,7 @@ export default function App() {
     Send Message
   </button>
 </form>
+
 
         </div>
       </section>

@@ -5,6 +5,14 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (!document.getElementById('calendly-widget')) {
+      const script = document.createElement('script');
+      script.id = 'calendly-widget';
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
@@ -22,6 +30,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans text-gray-800">
+      {/* Header */}
       <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }} />
@@ -35,6 +44,7 @@ export default function App() {
       </header>
 
       <main className="pt-48">
+        {/* Hero Section */}
         <section className="py-24 px-6 text-center bg-gradient-to-r from-blue-900 to-black text-white">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
@@ -48,6 +58,7 @@ export default function App() {
           </button>
         </section>
 
+        {/* Services */}
         <section className="py-20 px-6 max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
           <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
             <h3 className="text-2xl font-semibold mb-2">AI Chatbot Setup</h3>
@@ -63,6 +74,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* Use Cases */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-3xl font-bold mb-10">Use Cases</h3>
@@ -83,6 +95,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* Contact Form */}
         <section className="py-20 px-6 bg-white text-center">
           <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
           <p className="text-gray-600 mb-6">
@@ -98,6 +111,7 @@ export default function App() {
           </form>
         </section>
 
+        {/* Testimonials */}
         <section className="py-20 px-6 bg-gray-100 text-center">
           <h3 className="text-3xl font-bold mb-4">Client Success Stories</h3>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
@@ -120,6 +134,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* Footer */}
         <footer className="py-8 px-6 bg-black text-center text-gray-400">
           &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
         </footer>

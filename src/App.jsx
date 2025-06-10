@@ -2,24 +2,21 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const openCalendlyPopup = () => {
-    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-      window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai' });
-    } else {
-      alert('Calendly is not ready yet. Please refresh and try again.');
-    }
-  };
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
   return (
     <div className="min-h-screen font-sans text-gray-800">
-      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
+      {/* Header */}
+      <header className={`p-4 md:p-6 bg-white fixed top-0 w-full z-50 transition-all ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <img
             src="/logo.png"
@@ -27,7 +24,7 @@ export default function App() {
             style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }}
           />
           <button
-            onClick={openCalendlyPopup}
+            onClick={openModal}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
           >
             Book a Demo
@@ -36,13 +33,14 @@ export default function App() {
       </header>
 
       <main className="pt-48">
+        {/* Hero Section */}
         <section className="py-24 px-6 text-center bg-gradient-to-r from-blue-900 to-black text-white">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
             We build AI bots and automations that run your business while you focus on growth.
           </p>
           <button
-            onClick={openCalendlyPopup}
+            onClick={openModal}
             className="bg-white text-black px-6 py-3 rounded-2xl text-lg font-semibold"
           >
             Book a Free Demo
@@ -87,7 +85,7 @@ export default function App() {
         </section>
 
         {/* Contact Form */}
-        <section id="contact" className="py-20 px-6 bg-white text-center">
+        <section className="py-20 px-6 bg-white text-center">
           <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
           <p className="text-gray-600 mb-6">
             Not ready to book a demo yet? No worries — send us a message with your questions or ideas, and we’ll help you figure out the best next steps.
@@ -102,11 +100,32 @@ export default function App() {
           </form>
         </section>
 
-        {/* Footer */}
-        <footer className="py-8 px-6 bg-black text-center text-gray-400">
-          &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
-        </footer>
       </main>
+
+      {/* Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-xl overflow-hidden w-11/12 max-w-3xl h-[80vh] relative"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 z-10"
+            >
+              ✕
+            </button>
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/inquiry-hausmindai"
+              style={{ height: '100%' }}
+            ></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

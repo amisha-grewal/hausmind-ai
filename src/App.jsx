@@ -1,98 +1,140 @@
-import React, { useEffect } from "react";
-import logo from "./logo.png";
-import "./index.css";
+import { useEffect, useState } from 'react';
 
 export default function App() {
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    // Load Calendly widget script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.body.appendChild(script);
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const openCalendlyPopup = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai/new-meeting' });
+      return false;
+    }
+  };
+
   return (
-    <div className="font-sans">
+    <div className="min-h-screen font-sans text-gray-800">
       {/* Header */}
-      <header className="bg-white shadow py-4 px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Hausmind AI Logo" className="h-10 w-auto" />
-          <span className="text-xl font-bold">Hausmind AI</span>
+      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }} />
+          <button
+            onClick={openCalendlyPopup}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition"
+          >
+            Book a Demo
+          </button>
         </div>
-        <nav className="space-x-4 text-sm font-medium">
-          <a href="#services" className="text-gray-700 hover:text-black">Services</a>
-          <a href="#case-studies" className="text-gray-700 hover:text-black">Case Studies</a>
-          <a href="#contact" className="text-gray-700 hover:text-black">Contact</a>
-        </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-white py-20 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Smarter Systems. Automated Growth.</h1>
-        <p className="text-lg mb-6 max-w-xl mx-auto">
-          We build AI bots and automations that run your business while you focus on growth.
-        </p>
-        <button
-          className="bg-black text-white px-6 py-3 rounded-xl"
-          onClick={() => window.Calendly.initPopupWidget({ url: 'https://calendly.com/hausmind/30min' })}
-        >
-          Book a Demo
-        </button>
-      </section>
+      <main className="pt-48">
+        {/* Hero Section */}
+        <section className="py-24 px-6 text-center bg-gradient-to-r from-blue-900 to-black text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+            We build AI bots and automations that run your business while you focus on growth.
+          </p>
+          <button
+            onClick={openCalendlyPopup}
+            className="bg-white text-black px-6 py-3 rounded-2xl text-lg font-semibold"
+          >
+            Book a Free Demo
+          </button>
+        </section>
 
-      {/* Services */}
-      <section id="services" className="bg-gray-100 py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">What We Offer</h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-6 bg-white rounded-2xl shadow">
-            <h3 className="text-xl font-bold mb-2">AI Chatbots</h3>
-            <p>Custom-trained bots that handle client inquiries 24/7.</p>
+        {/* Services */}
+        <section className="py-20 px-6 max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
+          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
+            <h3 className="text-2xl font-semibold mb-2">AI Chatbot Setup</h3>
+            <p>Deploy smart bots on your site and social platforms to handle FAQs, qualify leads, and book meetings.</p>
           </div>
-          <div className="p-6 bg-white rounded-2xl shadow">
-            <h3 className="text-xl font-bold mb-2">Workflow Automation</h3>
-            <p>Automate repetitive business processes to save time and money.</p>
+          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
+            <h3 className="text-2xl font-semibold mb-2">Workflow Automation</h3>
+            <p>Automate repetitive tasks across Zapier, Airtable, ChatGPT and other platforms.</p>
           </div>
-          <div className="p-6 bg-white rounded-2xl shadow">
-            <h3 className="text-xl font-bold mb-2">CRM Integration</h3>
-            <p>Seamlessly connect our systems with your existing tools.</p>
+          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
+            <h3 className="text-2xl font-semibold mb-2">Lead Qualification Bots</h3>
+            <p>Use AI to score and pass top leads to your inbox or CRM — instantly.</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Case Studies */}
-      <section id="case-studies" className="bg-white py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">Case Studies</h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="border rounded-xl p-6 shadow-md text-left">
-            <h3 className="text-xl font-bold mb-2">Real Estate CRM Automation</h3>
-            <p className="mb-3">Boosted client engagement and lead conversions by automating real estate communications.</p>
-            <button className="text-blue-600 font-semibold hover:underline">Read More</button>
+        {/* Use Cases */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-10">Use Cases</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">Real Estate</h4>
+                <p>Qualify buyer leads, answer listings questions, and schedule viewings 24/7 with bots.</p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">E-Commerce</h4>
+                <p>Provide support, recommend products, and convert visitors into customers using AI flows.</p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-xl shadow">
+                <h4 className="text-xl font-semibold mb-2">Agencies</h4>
+                <p>Automate lead capture and onboarding so you can focus on creative work, not admin.</p>
+              </div>
+            </div>
           </div>
-          <div className="border rounded-xl p-6 shadow-md text-left">
-            <h3 className="text-xl font-bold mb-2">AI Chatbot for Client Engagement</h3>
-            <p className="mb-3">Built a responsive, always-available chatbot to handle inquiries in under 2 seconds.</p>
-            <button className="text-blue-600 font-semibold hover:underline">Read More</button>
+        </section>
+
+        {/* Contact Form */}
+        <section className="py-20 px-6 bg-white text-center">
+          <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
+          <p className="text-gray-600 mb-6">
+            Not ready to book a demo yet? No worries — send us a message with your questions or ideas, and we’ll help you figure out the best next steps.
+          </p>
+          <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="max-w-2xl mx-auto space-y-4">
+            <input type="text" name="name" placeholder="Your Name" required className="w-full border px-4 py-3 rounded-xl" />
+            <input type="email" name="email" placeholder="Your Email" required className="w-full border px-4 py-3 rounded-xl" />
+            <textarea name="message" placeholder="Your Message" rows="4" required className="w-full border px-4 py-3 rounded-xl" />
+            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
+              Send Message
+            </button>
+          </form>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-20 px-6 bg-gray-100 text-center">
+          <h3 className="text-3xl font-bold mb-4">Client Success Stories</h3>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+            We’re just getting started — and already building custom automation systems for early adopters.
+            Want to be featured here? Let’s work together.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“This could be your story.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Future Client</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“Hausmind AI helped us automate and scale faster.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Placeholder Testimonial</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow text-left">
+              <p className="text-gray-500 italic">“We saved 20+ hours a week thanks to automation.”</p>
+              <p className="mt-2 text-gray-400 text-sm">— Placeholder Client</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About */}
-      <section className="bg-gray-100 py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">About Hausmind AI</h2>
-        <p className="max-w-3xl mx-auto">
-          We're a forward-thinking tech company helping small businesses leverage AI. Our mission is to automate everyday tasks so you can scale faster.
-        </p>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="bg-white py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">Let’s Talk</h2>
-        <p>Click “Book a Demo” above to schedule a consultation at your convenience.</p>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-white text-center py-8">
-        <p>&copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.</p>
-      </footer>
+        {/* Footer */}
+        <footer className="py-8 px-6 bg-black text-center text-gray-400">
+          &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
+        </footer>
+      </main>
     </div>
   );
 }

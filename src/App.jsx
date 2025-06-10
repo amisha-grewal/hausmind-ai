@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
+import logo from "./logo.png";
 import "./index.css";
 
 export default function App() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <div className="font-sans">
+      {/* Header */}
+      <header className="bg-white shadow py-4 px-6 flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="Hausmind AI Logo" className="h-10 w-auto" />
+          <span className="text-xl font-bold">Hausmind AI</span>
+        </div>
+        <nav className="space-x-4 text-sm font-medium">
+          <a href="#services" className="text-gray-700 hover:text-black">Services</a>
+          <a href="#case-studies" className="text-gray-700 hover:text-black">Case Studies</a>
+          <a href="#contact" className="text-gray-700 hover:text-black">Contact</a>
+        </nav>
+      </header>
+
       {/* Hero Section */}
       <section className="bg-white py-20 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Smarter Systems. Automated Growth.</h1>
         <p className="text-lg mb-6 max-w-xl mx-auto">
           We build AI bots and automations that run your business while you focus on growth.
         </p>
-        <a href="#contact" className="bg-black text-white px-6 py-3 rounded-xl inline-block">Book a Demo</a>
+        <button
+          className="bg-black text-white px-6 py-3 rounded-xl"
+          onClick={() => window.Calendly.initPopupWidget({ url: 'https://calendly.com/hausmind/30min' })}
+        >
+          Book a Demo
+        </button>
       </section>
 
       {/* Services */}
-      <section className="bg-gray-100 py-16 px-4 text-center">
+      <section id="services" className="bg-gray-100 py-16 px-4 text-center">
         <h2 className="text-3xl font-semibold mb-6">What We Offer</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div className="p-6 bg-white rounded-2xl shadow">
@@ -32,12 +58,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="bg-white py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">Use Cases</h2>
-        <p className="max-w-3xl mx-auto mb-4">
-          Ideal for real estate agents, consultants, and service providers. Focus on growth while we handle lead follow-ups, appointment booking, and more.
-        </p>
+      {/* Case Studies */}
+      <section id="case-studies" className="bg-white py-16 px-4 text-center">
+        <h2 className="text-3xl font-semibold mb-6">Case Studies</h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="border rounded-xl p-6 shadow-md text-left">
+            <h3 className="text-xl font-bold mb-2">Real Estate CRM Automation</h3>
+            <p className="mb-3">Boosted client engagement and lead conversions by automating real estate communications.</p>
+            <button className="text-blue-600 font-semibold hover:underline">Read More</button>
+          </div>
+          <div className="border rounded-xl p-6 shadow-md text-left">
+            <h3 className="text-xl font-bold mb-2">AI Chatbot for Client Engagement</h3>
+            <p className="mb-3">Built a responsive, always-available chatbot to handle inquiries in under 2 seconds.</p>
+            <button className="text-blue-600 font-semibold hover:underline">Read More</button>
+          </div>
+        </div>
       </section>
 
       {/* About */}
@@ -48,18 +83,10 @@ export default function App() {
         </p>
       </section>
 
-      {/* Calendly */}
+      {/* Contact */}
       <section id="contact" className="bg-white py-16 px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-6">Book a Consultation</h2>
-        <div className="max-w-4xl mx-auto">
-          <iframe
-            src="https://calendly.com/hausmind/30min"
-            width="100%"
-            height="600"
-            frameBorder="0"
-            title="Schedule Meeting"
-          ></iframe>
-        </div>
+        <h2 className="text-3xl font-semibold mb-6">Let’s Talk</h2>
+        <p>Click “Book a Demo” above to schedule a consultation at your convenience.</p>
       </section>
 
       {/* Footer */}

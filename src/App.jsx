@@ -1,22 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function loadCalendlyScript() {
-  return new Promise((resolve, reject) => {
-    if (window.Calendly) {
-      resolve();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Failed to load Calendly script'));
-    document.body.appendChild(script);
-  });
-}
-
 export default function App() {
-  const [loading, setLoading] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,26 +9,17 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openCalendlyPopup = async () => {
-    setLoading(true);
-    try {
-      await loadCalendlyScript();
+  const openCalendlyPopup = () => {
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
       window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai' });
-    } catch (error) {
-      alert('Failed to load Calendly popup. Please try again later.');
-      console.error(error);
+    } else {
+      alert('Calendly is not ready yet. Please refresh and try again.');
     }
-    setLoading(false);
   };
 
   return (
     <div className="min-h-screen font-sans text-gray-800">
-      {/* Header */}
-      <header
-        className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'py-2 shadow-sm' : 'py-6'
-        }`}
-      >
+      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <img
             src="/logo.png"
@@ -53,16 +28,14 @@ export default function App() {
           />
           <button
             onClick={openCalendlyPopup}
-            disabled={loading}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition disabled:opacity-50"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
           >
-            {loading ? 'Loading...' : 'Book a Demo'}
+            Book a Demo
           </button>
         </div>
       </header>
 
       <main className="pt-48">
-        {/* Hero Section */}
         <section className="py-24 px-6 text-center bg-gradient-to-r from-blue-900 to-black text-white">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
@@ -70,10 +43,9 @@ export default function App() {
           </p>
           <button
             onClick={openCalendlyPopup}
-            disabled={loading}
             className="bg-white text-black px-6 py-3 rounded-2xl text-lg font-semibold"
           >
-            {loading ? 'Loading...' : 'Book a Free Demo'}
+            Book a Free Demo
           </button>
         </section>
 
@@ -115,7 +87,7 @@ export default function App() {
         </section>
 
         {/* Contact Form */}
-        <section className="py-20 px-6 bg-white text-center">
+        <section id="contact" className="py-20 px-6 bg-white text-center">
           <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
           <p className="text-gray-600 mb-6">
             Not ready to book a demo yet? No worries — send us a message with your questions or ideas, and we’ll help you figure out the best next steps.

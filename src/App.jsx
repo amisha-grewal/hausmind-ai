@@ -31,7 +31,10 @@ export default function App() {
       <main className="pt-[180px]">
         {/* Hero */}
         <section className="py-24 px-6 text-center">
-          <svg className='mx-auto mb-4' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='#3b82f6' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><path d='M20 6L9 17l-5-5'/></svg>
+          <svg className='mx-auto mb-4' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='#3b82f6' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+  <path d='M3 17l6-6 4 4 8-8'/>
+  <path d='M14 7h7v7'/>
+</svg> width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='#3b82f6' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><path d='M20 6L9 17l-5-5'/></svg>
 <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
             Your AI-Powered Automation Partner
           </h2>

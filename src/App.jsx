@@ -32,7 +32,7 @@ export default function App() {
         <section className="text-center py-20 bg-gradient-to-br from-blue-50 to-white">
           <div className="max-w-3xl mx-auto">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-16 w-16 mx-auto text-blue-500 mb-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 17l6-6 4 4 8-8" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 17l5-5m0 0l-5-5m5 5H6" />
             </svg>
             <h1 className="text-4xl font-bold mb-4">Smarter Systems. Automated Growth.</h1>
             <p className="text-lg text-gray-600 mb-6">We build AI bots and automations that run your business while you focus on growth.</p>
@@ -58,8 +58,36 @@ export default function App() {
           </div>
         </section>
 
+        {/* About */}
+        <section className="py-20 bg-gray-50 px-6 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">About Hausmind AI</h2>
+            <p className="text-gray-700 text-lg">
+              Hausmind AI helps modern businesses scale through intelligent automation. Whether you're a solo founder or an enterprise, we deliver custom AI systems that save time and drive results.
+            </p>
+          </div>
+        </section>
+
+        {/* Testimonials / Early Case Studies */}
+        <section className="py-20 px-6 bg-white text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Early Results</h2>
+            <p className="text-gray-600 mb-8">We’re just getting started — but even our pilot tests have shown how powerful AI can be for small businesses.</p>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="bg-gray-100 p-6 rounded-xl shadow">
+                <p className="italic">"Using Hausmind AI, we booked 3x more calls in our first week than we expected."</p>
+                <p className="mt-4 font-semibold">— Beta Partner A</p>
+              </div>
+              <div className="bg-gray-100 p-6 rounded-xl shadow">
+                <p className="italic">"Automating our follow-ups with their bot saved us hours every week."</p>
+                <p className="mt-4 font-semibold">— Beta Partner B</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
-        <section className="py-20 bg-white px-6 max-w-2xl mx-auto">
+        <section className="py-20 bg-gray-50 px-6 max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-6">Contact Us</h2>
           <p className="text-center text-gray-600 mb-4">Not ready to book? Send us a quick message below and we’ll be in touch.</p>
           <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="grid gap-4">

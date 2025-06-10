@@ -5,11 +5,14 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
+    // Load Calendly widget script once
+    if (!document.getElementById('calendly-widget')) {
+      const script = document.createElement('script');
+      script.id = 'calendly-widget';
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
@@ -19,9 +22,11 @@ export default function App() {
   }, []);
 
   const openCalendlyPopup = () => {
-    if (window.Calendly) {
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
       window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai/new-meeting' });
-      return false;
+    } else {
+      console.error('Calendly widget is not loaded yet.');
+      alert('Please wait a moment and try again.');
     }
   };
 

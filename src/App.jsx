@@ -1,44 +1,59 @@
 
 import { useState, useEffect } from 'react';
 
+function loadCalendlyScript() {
+  return new Promise((resolve, reject) => {
+    if (window.Calendly) {
+      resolve();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('Failed to load Calendly script'));
+    document.body.appendChild(script);
+  });
+}
+
 export default function App() {
+  const [loading, setLoading] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    if (!document.getElementById('calendly-widget')) {
-      const script = document.createElement('script');
-      script.id = 'calendly-widget';
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openCalendlyPopup = () => {
-    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-      window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai/new-meeting' });
-    } else {
-      alert('Calendly is not ready yet, please try again in a moment.');
+  const openCalendlyPopup = async () => {
+    setLoading(true);
+    try {
+      await loadCalendlyScript();
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai' });
+    } catch (error) {
+      alert('Failed to load Calendly popup. Please try again later.');
+      console.error(error);
     }
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen font-sans text-gray-800">
       {/* Header */}
-      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
+      <header className={\`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 \${scrolled ? 'py-2 shadow-sm' : 'py-6'}\`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }} />
+          <img
+            src="/logo.png"
+            alt="Hausmind AI Logo"
+            style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }}
+          />
           <button
             onClick={openCalendlyPopup}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition"
+            disabled={loading}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition disabled:opacity-50"
           >
-            Book a Demo
+            {loading ? 'Loading...' : 'Book a Demo'}
           </button>
         </div>
       </header>
@@ -52,9 +67,10 @@ export default function App() {
           </p>
           <button
             onClick={openCalendlyPopup}
+            disabled={loading}
             className="bg-white text-black px-6 py-3 rounded-2xl text-lg font-semibold"
           >
-            Book a Free Demo
+            {loading ? 'Loading...' : 'Book a Free Demo'}
           </button>
         </section>
 

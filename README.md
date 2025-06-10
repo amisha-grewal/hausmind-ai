@@ -1,7 +1,7 @@
-# Hausmind AI
+# Hausmind AI (React + Tailwind)
 
-### How to Run
-1. Run `npm install` to install dependencies.
-2. Run `npm start` to launch the app.
+## 📦 Setup
+1. Run `npm install`
+2. Run `npm start`
 
-Make sure Tailwind CSS is working by checking the stylings on the homepage.
+Make sure to have Node.js installed.

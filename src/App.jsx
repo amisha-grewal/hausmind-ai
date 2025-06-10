@@ -1,56 +1,40 @@
 
-import { useState } from 'react';
-
-function loadCalendlyScript() {
-  return new Promise((resolve, reject) => {
-    if (window.Calendly) {
-      resolve();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Calendly script failed to load'));
-    document.body.appendChild(script);
-  });
-}
+import { useState, useEffect } from 'react';
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const openCalendlyPopup = async () => {
-    setLoading(true);
-    try {
-      await loadCalendlyScript();
-      if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-        window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai/new-meeting' });
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Failed to load Calendly popup. Please try again later.');
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const openCalendlyPopup = () => {
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/inquiry-hausmindai/new-meeting' });
+    } else {
+      alert('Calendly is not ready yet, please try again in a moment.');
     }
-    setLoading(false);
   };
 
   return (
     <div className="min-h-screen font-sans text-gray-800">
-      {/* Header */}
-      <header className="p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 py-6">
+      <header className={`p-4 md:p-6 border-b border-gray-200 bg-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-sm' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: '9.375rem' }} />
+          <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: scrolled ? '4rem' : '9.375rem', transition: 'height 0.3s ease' }} />
           <button
             onClick={openCalendlyPopup}
-            disabled={loading}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition disabled:opacity-50"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition"
           >
-            {loading ? 'Loading...' : 'Book a Demo'}
+            Book a Demo
           </button>
         </div>
       </header>
 
       <main className="pt-48">
-        {/* Hero Section */}
         <section className="py-24 px-6 text-center bg-gradient-to-r from-blue-900 to-black text-white">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">Smarter Systems. Automated Growth.</h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
@@ -58,14 +42,12 @@ export default function App() {
           </p>
           <button
             onClick={openCalendlyPopup}
-            disabled={loading}
             className="bg-white text-black px-6 py-3 rounded-2xl text-lg font-semibold"
           >
-            {loading ? 'Loading...' : 'Book a Free Demo'}
+            Book a Free Demo
           </button>
         </section>
 
-        {/* Services */}
         <section className="py-20 px-6 max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
           <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
             <h3 className="text-2xl font-semibold mb-2">AI Chatbot Setup</h3>
@@ -81,7 +63,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Use Cases */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-3xl font-bold mb-10">Use Cases</h3>
@@ -102,7 +83,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Contact Form */}
         <section className="py-20 px-6 bg-white text-center">
           <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
           <p className="text-gray-600 mb-6">
@@ -118,7 +98,6 @@ export default function App() {
           </form>
         </section>
 
-        {/* Testimonials */}
         <section className="py-20 px-6 bg-gray-100 text-center">
           <h3 className="text-3xl font-bold mb-4">Client Success Stories</h3>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
@@ -141,7 +120,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="py-8 px-6 bg-black text-center text-gray-400">
           &copy; {new Date().getFullYear()} Hausmind AI. All rights reserved.
         </footer>

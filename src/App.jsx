@@ -1,18 +1,21 @@
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function App() {
+  const [showCalendly, setShowCalendly] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Header */}
       <header className="p-6 border-b border-gray-800 sticky top-0 bg-black z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <img src="/logo.png" alt="Hausmind AI Logo" style={{ height: "150px" }} />
-          <a href="https://calendly.com/inquiry-hausmindai/new-meeting" target="_blank" rel="noopener noreferrer">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl transition">
-              Book a Demo
-            </button>
-          </a>
+          <button
+            onClick={() => setShowCalendly(true)}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl transition"
+          >
+            Book a Demo
+          </button>
         </div>
       </header>
 
@@ -24,10 +27,35 @@ export default function App() {
         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
           We build AI bots and automations that grow your business while you focus on what matters most.
         </p>
-        <a href="#contact" className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-lg font-semibold transition">
+        <button
+          onClick={() => setShowCalendly(true)}
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-lg font-semibold transition"
+        >
           Let’s Talk
-        </a>
+        </button>
       </section>
+
+      {/* Calendly Modal */}
+      {showCalendly && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="bg-white rounded-xl p-4 w-full max-w-3xl h-[80vh] relative">
+            <button
+              onClick={() => setShowCalendly(false)}
+              className="absolute top-2 right-4 text-black font-bold text-xl"
+            >
+              &times;
+            </button>
+            <iframe
+              src="https://calendly.com/inquiry-hausmindai/new-meeting"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allowFullScreen
+              title="Calendly"
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       {/* Services */}
       <section className="py-20 px-6 max-w-6xl mx-auto grid gap-12 md:grid-cols-3">

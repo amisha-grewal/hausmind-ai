@@ -46,63 +46,11 @@ export default function App() {
             Book a Free Demo
           </button>
         </section>
-
-        {/* Services */}
-        <section className="py-20 px-6 max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
-          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">AI Chatbot Setup</h3>
-            <p>Deploy smart bots on your site and social platforms to handle FAQs, qualify leads, and book meetings.</p>
-          </div>
-          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">Workflow Automation</h3>
-            <p>Automate repetitive tasks across Zapier, Airtable, ChatGPT and other platforms.</p>
-          </div>
-          <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">Lead Qualification Bots</h3>
-            <p>Use AI to score and pass top leads to your inbox or CRM — instantly.</p>
-          </div>
-        </section>
-
-        {/* Use Cases */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-3xl font-bold mb-10">Use Cases</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 bg-gray-100 rounded-xl shadow">
-                <h4 className="text-xl font-semibold mb-2">Real Estate</h4>
-                <p>Qualify buyer leads, answer listings questions, and schedule viewings 24/7 with bots.</p>
-              </div>
-              <div className="p-6 bg-gray-100 rounded-xl shadow">
-                <h4 className="text-xl font-semibold mb-2">E-Commerce</h4>
-                <p>Provide support, recommend products, and convert visitors into customers using AI flows.</p>
-              </div>
-              <div className="p-6 bg-gray-100 rounded-xl shadow">
-                <h4 className="text-xl font-semibold mb-2">Agencies</h4>
-                <p>Automate lead capture and onboarding so you can focus on creative work, not admin.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form */}
-        <section className="py-20 px-6 bg-white text-center">
-          <h4 className="text-2xl font-bold mb-2">Contact Us Directly</h4>
-          <p className="text-gray-600 mb-6">
-            Not ready to book a demo yet? No worries — send us a message with your questions or ideas, and we’ll help you figure out the best next steps.
-          </p>
-          <form action="https://formspree.io/f/xjkrgvqn" method="POST" className="max-w-2xl mx-auto space-y-4">
-            <input type="text" name="name" placeholder="Your Name" required className="w-full border px-4 py-3 rounded-xl" />
-            <input type="email" name="email" placeholder="Your Email" required className="w-full border px-4 py-3 rounded-xl" />
-            <textarea name="message" placeholder="Your Message" rows="4" required className="w-full border px-4 py-3 rounded-xl" />
-            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
-              Send Message
-            </button>
-          </form>
-        </section>
-
+        {/* Services, Use Cases, Contact Form, etc. */}
+        {/* ... */}
       </main>
 
-      {/* Modal */}
+      {/* Iframe Modal */}
       {showModal && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
@@ -110,7 +58,7 @@ export default function App() {
         >
           <div
             className="bg-white rounded-xl overflow-hidden w-11/12 max-w-3xl h-[80vh] relative"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
@@ -118,14 +66,16 @@ export default function App() {
             >
               ✕
             </button>
-            <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/inquiry-hausmindai"
-              style={{ height: '100%' }}
-            ></div>
+            <iframe
+              src="https://calendly.com/inquiry-hausmindai?embed_domain=localhost&embed_type=Inline"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Calendly Scheduling"
+            ></iframe>
           </div>
         </div>
       )}
     </div>
-  );
+);
 }

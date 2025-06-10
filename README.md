@@ -1,7 +1,8 @@
-# Hausmind AI (React + Tailwind)
+# Hausmind AI
 
-## 📦 Setup
-1. Run `npm install`
-2. Run `npm start`
+## How to run
 
-Make sure to have Node.js installed.
+```bash
+npm install
+npm start
+```
